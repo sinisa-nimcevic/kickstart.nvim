@@ -308,7 +308,7 @@ require('lazy').setup({
     config = function()
       vim.g.sftp_sync_servers = {
         site = {
-          local_path = '/home/snimcevic/www/site',
+          local_path = '/home/snimcevic/www/www-site',
           remote_path = '/webapps/snimcevic/www/site',
           host = 'www1.telenor.rs',
           username = 'razvoj',
@@ -663,7 +663,7 @@ require('lazy').setup({
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = { disable = { 'missing-fields' } },
             },
           },
         },
@@ -705,22 +705,13 @@ require('lazy').setup({
     lazy = false,
     keys = {
       {
-        '<leader>fo',
+        '<leader>f',
         function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',
-        desc = '[FO]rmat buffer',
-      },
-      {
-        '<leader>fw',
-        function()
-          require('conform').format { async = true, lsp_fallback = true }
-          vim.cmd ':w'
-        end,
-        mode = '',
-        desc = '[F]ormat buffer and [W]rite',
-      },
+        desc = '[F]ormat buffer',
+      }
     },
     opts = {
       notify_on_error = false,
