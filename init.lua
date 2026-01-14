@@ -372,23 +372,23 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
-
-      -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        -- ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-      }
-    end,
-  },
-
+  -- { -- Useful plugin to show you pending keybinds.
+  --   'folke/which-key.nvim',
+  --   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+  --   config = function() -- This is the function that runs, AFTER loading
+  --     require('which-key').setup()
+  --
+  --     -- Document existing key chains
+  --     require('which-key').register {
+  --       ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+  --       ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+  --       ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+  --       ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+  --       -- ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  --     }
+  --   end,
+  -- },
+  --
   -- NOTE: Plugins can specify dependencies.
   --
   -- The dependencies are proper plugin specifications as well - anything
@@ -711,7 +711,7 @@ require('lazy').setup({
         end,
         mode = '',
         desc = '[F]ormat buffer',
-      }
+      },
     },
     opts = {
       notify_on_error = false,
@@ -736,6 +736,10 @@ require('lazy').setup({
         javascript = { 'prettierd' },
         typescript = { 'prettierd', 'eslint_d' },
         typescriptreact = { 'prettierd', 'eslint_d' },
+        css = { 'css-lsp', 'prettierd' },
+        scss = { 'stylelint', 'prettierd' },
+        sass = { 'stylelint', 'prettierd' },
+        html = { 'prettierd' },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
         ['_'] = { 'trim_whitespace' },
