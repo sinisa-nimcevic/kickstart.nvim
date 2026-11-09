@@ -220,6 +220,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Copy active buffer path to clipboard
+vim.keymap.set('n', '<leader>cp', function()
+  vim.fn.setreg('+', vim.fn.expand('%:p'))
+  print('Copied: ' .. vim.fn.expand('%:p'))
+end)
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
